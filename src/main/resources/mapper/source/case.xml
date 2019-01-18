@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sgcc.zentao.data.mapper.source.SourceCaseDao">
+	<resultMap id="Case" type="com.sgcc.zentao.data.domain.Case">
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        
+		<result column="product" property="product" jdbcType="INTEGER" />
+		<result column="branch" property="branch" jdbcType="INTEGER" />
+		<result column="lib" property="lib" jdbcType="INTEGER" />
+		<result column="module" property="module" jdbcType="INTEGER" />
+		<result column="path" property="path" jdbcType="INTEGER" />
+		<result column="story" property="story" jdbcType="INTEGER" />
+		<result column="storyVersion" property="storyVersion" jdbcType="INTEGER" />
+		<result column="pri" property="pri" jdbcType="INTEGER" />
+		<result column="order" property="order" jdbcType="INTEGER" />
+		<result column="version" property="version" jdbcType="INTEGER" />
+		<result column="fromBug" property="fromBug" jdbcType="INTEGER" />
+		<result column="fromCaseID" property="fromCaseID" jdbcType="INTEGER" />
+		<result column="casemark" property="casemark" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="precondition" property="precondition" jdbcType="VARCHAR" />
+		<result column="keywords" property="keywords" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="stage" property="stage" jdbcType="VARCHAR" />
+		<result column="howRun" property="howRun" jdbcType="VARCHAR" />
+		<result column="scriptedBy" property="scriptedBy" jdbcType="VARCHAR" />
+		<result column="scriptedDate" property="scriptedDate" jdbcType="VARCHAR" />
+		<result column="scriptStatus" property="scriptStatus" jdbcType="VARCHAR" />
+		<result column="scriptLocation" property="scriptLocation" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="color" property="color" jdbcType="VARCHAR" />
+		<result column="frequency" property="frequency" jdbcType="VARCHAR" />
+		<result column="openedBy" property="openedBy" jdbcType="VARCHAR" />
+		<result column="openedDate" property="openedDate" jdbcType="VARCHAR" />
+		<result column="reviewedBy" property="reviewedBy" jdbcType="VARCHAR" />
+		<result column="reviewedDate" property="reviewedDate" jdbcType="VARCHAR" />
+		<result column="lastEditedBy" property="lastEditedBy" jdbcType="VARCHAR" />
+		<result column="lastEditedDate" property="lastEditedDate" jdbcType="VARCHAR" />
+		<result column="linkCase" property="linkCase" jdbcType="VARCHAR" />
+		<result column="deleted" property="deleted" jdbcType="VARCHAR" />
+		<result column="lastRunner" property="lastRunner" jdbcType="VARCHAR" />
+		<result column="lastRunDate" property="lastRunDate" jdbcType="VARCHAR" />
+		<result column="lastRunResult" property="lastRunResult" jdbcType="VARCHAR" />
+		<result column="testData" property="testData" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <resultMap type="com.sgcc.zentao.data.domain.Casestep" id="Casestep">
+    	<id column="ID" property="id" jdbcType="INTEGER" />
+    	<result column="parent" property="parent" jdbcType="INTEGER" />
+		<result column="case" property="case_s" jdbcType="INTEGER" />
+		<result column="version" property="version" jdbcType="INTEGER" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="desc" property="desc" jdbcType="VARCHAR" />
+		<result column="expect" property="expect" jdbcType="VARCHAR" />
+    </resultMap>
+	
+	<select id="getCases" resultMap="Case">
+		select * from zt_case where `deleted` = '0'
+	</select>
+	
+	<select id="getCaseSteps" resultMap="Casestep">
+		select * from zt_casestep
+	</select>
+</mapper>

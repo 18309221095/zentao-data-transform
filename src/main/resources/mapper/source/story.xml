@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sgcc.zentao.data.mapper.source.SourceStoryDao">
+	<resultMap id="Story" type="com.sgcc.zentao.data.domain.Story">
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        <result column="product" property="product" jdbcType="INTEGER" />
+        <result column="branch" property="branch" jdbcType="INTEGER" />
+        <result column="module" property="module" jdbcType="INTEGER" />
+        <result column="plan" property="plan" jdbcType="INTEGER" />
+        <result column="fromBug" property="fromBug" jdbcType="INTEGER" />
+        <result column="pri" property="pri" jdbcType="INTEGER" />
+        <result column="toBug" property="toBug" jdbcType="INTEGER" />
+        <result column="duplicateStory" property="duplicateStory" jdbcType="INTEGER" />
+        <result column="version" property="version" jdbcType="INTEGER" />
+        <result column="estimate" property="estimate" jdbcType="FLOAT" />
+        <result column="source" property="source" jdbcType="VARCHAR" />
+        <result column="sourceNote" property="sourceNote" jdbcType="VARCHAR" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="keywords" property="keywords" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="color" property="color" jdbcType="VARCHAR" />
+        <result column="stage" property="stage" jdbcType="VARCHAR" />
+        <result column="mailto" property="mailto" jdbcType="VARCHAR" />
+        <result column="openedBy" property="openedBy" jdbcType="VARCHAR" />
+        <result column="openedDate" property="openedDate" jdbcType="VARCHAR" />
+        <result column="assignedTo" property="assignedTo" jdbcType="VARCHAR" />
+        <result column="assignedDate" property="assignedDate" jdbcType="VARCHAR" />
+        <result column="lastEditedBy" property="lastEditedBy" jdbcType="VARCHAR" />
+        <result column="lastEditedDate" property="lastEditedDate" jdbcType="VARCHAR" />
+        <result column="reviewedBy" property="reviewedBy" jdbcType="VARCHAR" />
+        <result column="reviewedDate" property="reviewedDate" jdbcType="VARCHAR"/>
+        <result column="closedBy" property="closedBy" jdbcType="VARCHAR" />
+        <result column="closedDate" property="closedDate" jdbcType="VARCHAR" />
+        <result column="closedReason" property="closedReason" jdbcType="VARCHAR" />
+        <result column="childStories" property="childStories" jdbcType="VARCHAR" />
+        <result column="linkStories" property="linkStories" jdbcType="VARCHAR" />
+        <result column="deleted" property="deleted" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <resultMap id="Storyspec" type="com.sgcc.zentao.data.domain.Storyspec">
+    	<id column="story" property="story" jdbcType="INTEGER" />
+    	<result column="version" property="version" jdbcType="INTEGER" />
+    	<result column="title" property="title" jdbcType="VARCHAR" />
+        <result column="spec" property="spec" jdbcType="VARCHAR" />
+        <result column="verify" property="verify" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <select id="getStories" resultMap="Story">
+    	select * from zt_story where `deleted` = '0'
+    </select>
+    
+    <select id="getStorySpecs" resultMap="Storyspec">
+    	select * from zt_storyspec
+    </select>
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sgcc.zentao.data.mapper.source.SourceTaskDao">
+	<resultMap id="Task" type="com.sgcc.zentao.data.domain.Task">
+        <id column="ID" property="id" jdbcType="INTEGER" />
+        <result column="project" property="project" jdbcType="INTEGER" />
+		<result column="module" property="module" jdbcType="INTEGER" />
+		<result column="story" property="story" jdbcType="INTEGER" />
+		<result column="storyVersion" property="storyVersion" jdbcType="INTEGER" />
+		<result column="fromBug" property="fromBug" jdbcType="INTEGER" />
+		<result column="pri" property="pri" jdbcType="INTEGER" />
+		<result column="estimate" property="estimate" jdbcType="FLOAT" />
+		<result column="consumed" property="consumed" jdbcType="FLOAT" />
+		<result column="left" property="left" jdbcType="FLOAT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="VARCHAR" />
+		<result column="deadline" property="deadline" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="color" property="color" jdbcType="VARCHAR" />
+		<result column="mailto" property="mailto" jdbcType="VARCHAR" />
+		<result column="desc" property="desc" jdbcType="VARCHAR" />
+		<result column="openedBy" property="openedBy" jdbcType="VARCHAR" />
+		<result column="openedDate" property="openedDate" jdbcType="VARCHAR" />
+		<result column="assignedTo" property="assignedTo" jdbcType="VARCHAR" />
+		<result column="assignedDate" property="assignedDate" jdbcType="VARCHAR" />
+		<result column="estStarted" property="estStarted" jdbcType="VARCHAR" />
+		<result column="realStarted" property="realStarted" jdbcType="VARCHAR" />
+		<result column="finishedBy" property="finishedBy" jdbcType="VARCHAR" />
+		<result column="finishedDate" property="finishedDate" jdbcType="VARCHAR" />
+		<result column="canceledBy" property="canceledBy" jdbcType="VARCHAR" />
+		<result column="canceledDate" property="canceledDate" jdbcType="VARCHAR" />
+		<result column="closedBy" property="closedBy" jdbcType="VARCHAR" />
+		<result column="closedDate" property="closedDate" jdbcType="VARCHAR" />
+		<result column="closedReason" property="closedReason" jdbcType="VARCHAR" />
+		<result column="lastEditedBy" property="lastEditedBy" jdbcType="VARCHAR" />
+		<result column="lastEditedDate" property="lastEditedDate" jdbcType="VARCHAR" />
+		<result column="deleted" property="deleted" jdbcType="VARCHAR" />
+		<result column="delayedTimes" property="delayedTimes" jdbcType="VARCHAR" />
+    </resultMap>
+	
+	<select id="getTasks" resultMap="Task">
+		select * from zt_task where `deleted` = '0'
+	</select>
+</mapper>

@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://{url}?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance&useSSL=false&zeroDateTimeBehavior=convertToNull
+    source:
+      driverClassName: com.mysql.jdbc.Driver
+      url: localhost:3306/leon_zentao
+      username: root
+      password: root
+      mapper: classpath:mapper/source/*.xml
+    target:
+      driverClassName: com.mysql.jdbc.Driver
+      url: localhost:3306/zentao
+      username: root
+      password: root
+      mapper: classpath:mapper/target/*.xml
+      
+mybatis:
+  typeAliasesPackage: com.sgcc.zentao.data.domain
+  
+logging:
+  level:
+    com.sgcc.zentao.data.mapper: INFO
+    
+localuser:
+  file:
+    path: config.conf
